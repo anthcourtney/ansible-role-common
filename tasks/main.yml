@@ -1,3 +1,6 @@
 ---
 
 - include: packages.yml
+- include: network.yml
+- include: profile.yml
+- include: security.yml

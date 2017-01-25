@@ -1,0 +1,14 @@
+---
+
+- name: Setup environment
+  hosts: all
+  become: true
+
+  vars:
+    common_install_packages: ['bind-utils']
+
+  roles:
+    - common
+
+- include: test.yml
+  when: run_tests|default() | bool

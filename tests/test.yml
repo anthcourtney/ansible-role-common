@@ -1,0 +1,19 @@
+---
+
+- name: Run functional tests
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: Test that we can dig cmdsolutions.com.au
+    command: dig +short cmdsolutions.com.au
+    register: dig_result
+    tags:
+      - functional-test
+
+  - name: Validate that the correct result is returned for our dig
+    assert:
+      that: dig_result.stdout.find('52.62.218.204') != -1
+    tags:
+      - functional-test

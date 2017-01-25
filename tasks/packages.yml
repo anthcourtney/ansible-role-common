@@ -14,7 +14,7 @@
   package:
     name: "{{ item }}"
     state: absent
-  with_items: "{{ common_install_packages }}"
+  with_items: "{{ common_remove_packages }}"
   tags:
     - common
     - common-packages

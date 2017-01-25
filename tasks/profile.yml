@@ -1,0 +1,10 @@
+---
+
+- name: Ensure /usr/local/bin is in default PATH
+  copy:
+    content: "export PATH=$PATH:/usr/local/bin"
+    dest: "/etc/profile.d/path.sh"
+    mode: 0755
+  tags:
+    - common
+    - common-profile

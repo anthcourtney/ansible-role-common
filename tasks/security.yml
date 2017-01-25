@@ -1,0 +1,19 @@
+---
+
+- name: Install SELinux python library
+  package:
+    name: libselinux-python
+    state: present
+  tags:
+    - common
+    - common-security
+    - common-security-selinux
+
+- name: Configure SELinux
+  selinux:
+    policy: "{{ selinux_policy | default(omit) }}"
+    state: "{{ selinux_state | default('disabled') }}"
+  tags:
+    - common
+    - common-security
+    - common-security-selinux

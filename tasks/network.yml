@@ -1,0 +1,11 @@
+---
+
+- name: Create entry in /etc/hosts for host fqdn/inventory_hostname
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ ansible_default_ipv4.address }} {{ ansible_fqdn|default(inventory_hostname) }}"
+    state: present
+  tags:
+    - common
+    - common-network
+    - common-network-hosts 
