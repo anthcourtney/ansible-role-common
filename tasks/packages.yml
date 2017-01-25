@@ -1,0 +1,21 @@
+---
+
+- name: Install base packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ common_install_packages }}"
+  tags:
+    - common
+    - common-packages
+    - common-install-packages
+
+- name: Remove base packages
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ common_install_packages }}"
+  tags:
+    - common
+    - common-packages
+    - common-install-packages
